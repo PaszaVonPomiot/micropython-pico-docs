@@ -1,0 +1,7 @@
+[project]
+name = "mcu-pico"
+version = "0.1.0"
+description = "Raspberry Pi Pico projects in MicroPython"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
