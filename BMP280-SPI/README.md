@@ -10,10 +10,10 @@
 - [pico-bmp280](https://github.com/flrrth/pico-bmp280) - sensor library
 
 ## Pinout
-Schema
+TODO: Schema
 
 ## Connection
-Fritzing
+TODO: Fritzing
 
 ## Functional description
 ### Measurement flow
@@ -70,6 +70,3 @@ print("chip_id", bmp280_spi.chip_id)
 print("config", bmp280_spi.config)
 print("ctrl_meas", bmp280_spi.ctrl_meas)
 ```
-
-## TODO
-- 
