@@ -30,5 +30,5 @@
 Each project has it's own folder that is added to a workspace.
 
 - Blink
-- BMP280
+- BMP280-SPI
 - KY-023

@@ -1,7 +1,12 @@
 # BMP280 - Pressure and temperature sensor
-BMP280 (HW-611) is a digital pressure sensor with temperature measurement.
-![BMP280 Pinout](img/bmp280-pinout.webp)
 
+## Hardware
+- Raspberry Pico
+- HW-611 E/P 280 sensor ![BMP280 Pinout](img/bmp280-pinout.webp)
+
+## Software
+- [MicroPython](https://micropython.org/download/RPI_PICO/) - firmware
+- [pico-bmp280](https://github.com/flrrth/pico-bmp280) - sensor library
 
 ## Pinout
 Schema
@@ -44,9 +49,6 @@ Default: 0x
 ### Standby time
 Determines how often automated measurements are made in normal mode. Has no effect in forced mode.  
 Default: 1000 ms
-
-
-
 
 ## Examples
 

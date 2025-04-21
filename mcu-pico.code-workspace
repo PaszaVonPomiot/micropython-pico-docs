@@ -5,10 +5,6 @@
             "path": "."
         },
         {
-            "name": "BMP280",
-            "path": "BMP280"
-        },
-        {
             "name": "KY-023",
             "path": "KY-023"
         },
@@ -17,8 +13,12 @@
             "path": "Blink"
         },
         {
+            "name": "BMP280-SPI",
+            "path": "BMP280-SPI"
+        },
+        {
             "name": "Mpy Remote Workspace",
-            "uri": "pico:"
+            "uri": "pico:/"
         }
     ],
 	"settings": {
@@ -68,12 +68,12 @@
 		"ruff.configurationPreference": "filesystemFirst",
 		"explorer.compactFolders": true,
 		"explorer.excludeGitIgnore": false,
-		"micropico.softResetAfterUpload": true,
-        "micropico.autoConnect": true,
+		"micropico.softResetAfterUpload": false,
+        "micropico.autoConnect": false,
         "micropico.syncFolder": ".",
         "micropico.additionalSyncFolders": [
             "Blink",
-            "BMP280",
+            "BMP280-SPI",
             "KY-023"
         ],
 		}
