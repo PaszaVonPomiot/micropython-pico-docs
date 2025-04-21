@@ -32,3 +32,9 @@ Each project has it's own folder that is added to a workspace.
 - Blink
 - BMP280-SPI
 - KY-023
+
+## Design considerations
+- Writing to internal flash storage wears sectors that have 10k-100k write limit
+    - use buffering to avoid many small writes
+    - use different filenames
+    - use external SD card
