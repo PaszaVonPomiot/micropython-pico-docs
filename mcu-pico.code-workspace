@@ -1,26 +1,26 @@
 {
 	"folders": [
-		{
-			"name": "mcu-pico",  // root folder containing projects
-			"path": "."
-		},
-		{
-			"name": "BMP280",
-			"path": "BMP280"
-		},
-		{
-			"name": "KY-023",
-			"path": "KY-023"
-		},
-		{
+        {
+            "name": "mcu-pico",
+            "path": "."
+        },
+        {
+            "name": "BMP280",
+            "path": "BMP280"
+        },
+        {
+            "name": "KY-023",
+            "path": "KY-023"
+        },
+        {
             "name": "Blink",
-			"path": "Blink"
-		},
-		{
-			"name": "Mpy Remote Workspace",
-			"uri": "pico:"
-		}
-	],
+            "path": "Blink"
+        },
+        {
+            "name": "Mpy Remote Workspace",
+            "uri": "pico:"
+        }
+    ],
 	"settings": {
 		"files.exclude": {
 			".mypy_cache": true,
@@ -69,7 +69,7 @@
 		"explorer.compactFolders": true,
 		"explorer.excludeGitIgnore": false,
 		"micropico.softResetAfterUpload": true,
-        "micropico.autoConnect": false,
+        "micropico.autoConnect": true,
         "micropico.syncFolder": ".",
         "micropico.additionalSyncFolders": [
             "Blink",
