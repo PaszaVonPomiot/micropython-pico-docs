@@ -17,9 +17,7 @@ pin_spi1_csb = Pin(13, mode=Pin.OUT, value=1)
 
 # BMP280 configuration is not persistent
 chip_config = BMP280Configuration()
-chip_config.power_mode = BMP280Configuration.POWER_MODE_FORCED
 chip_config.pressure_oversampling = BMP280Configuration.PRESSURE_OVERSAMPLING_4X
-
 
 # SPI configuration
 spi1 = SPI(1, sck=pin_spi1_sck, mosi=pin_spi1_sda, miso=pin_spi1_sdd)
@@ -46,6 +44,7 @@ def measure_and_save_loop(file: TextIO) -> None:
 
 def main() -> None:
     with open("time_temp_press.csv", "a") as file:
+        file.write("time_epoch;temperature_c;pressure_hpa\n")
         measure_and_save_loop(file=file)
 
 
