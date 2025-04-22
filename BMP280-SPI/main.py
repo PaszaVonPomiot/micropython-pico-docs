@@ -37,12 +37,12 @@ class Sensor:
 
 
 class SensorLogger:
-    def __init__(self, sensor: Sensor, min_buffer_items: int = 60) -> None:
+    def __init__(self, sensor: Sensor, buffer_size: int = 60) -> None:
         self.file_name = self._get_random_file_name()
         self.folder_name = "data"
         self.file_path = f"{self.folder_name}/{self.file_name}"
         self.buffer: list[str] = []
-        self.min_buffer_items = min_buffer_items
+        self.buffer_size = buffer_size
         self.sensor = sensor
         self._data_folder_setup()
         self._file_setup()
@@ -73,7 +73,7 @@ class SensorLogger:
 
     def _create_new_file(self) -> None:
         with open(self.file_path, mode="w") as file:
-            file.write("epoch;temp_c;pres_hpa\n")
+            file.write("uptime_s;temperature_c;pressure_hpa\n")
 
     def save_record_to_buffer(self) -> None:
         """Buffer readings to reduce flash wear"""
@@ -85,15 +85,15 @@ class SensorLogger:
         self.buffer.clear()
         return buffer_serialized
 
-    def save_buffer_to_file(self, min_items: int) -> None:
-        if not self.buffer_ready_to_flush(min_items=min_items):
+    def save_buffer_to_file(self) -> None:
+        if not self.buffer_ready_to_flush():
             return
         serialized_buffer = self.serialize_buffer()
         with open(self.file_path, mode="a") as file:
             file.write(serialized_buffer)
 
-    def buffer_ready_to_flush(self, min_items: int) -> bool:
-        return len(self.buffer) >= min_items
+    def buffer_ready_to_flush(self) -> bool:
+        return len(self.buffer) >= self.buffer_size
 
 
 class SensorLoop:
@@ -106,7 +106,7 @@ class SensorLoop:
         self._running = True
         while self._running:
             self.logger.save_record_to_buffer()
-            self.logger.save_buffer_to_file(min_items=10)
+            self.logger.save_buffer_to_file()
             time.sleep(self.interval_sec)
 
     def stop(self) -> None:
@@ -119,8 +119,8 @@ class Timestamp:  # TODO: Add uptime and epoch timestamp variants
 
 def delay_execution(seconds: int) -> None:
     """
-    Delay main() execution to give more time for VS Code MicroPico
-    vREPL terminal to auto-connect with Pico and halt program
+    For development purposes wait so that MicroPico have time to
+    auto-connect with vREPL and prevent main() from execution.
     """
     time.sleep(seconds)
 
@@ -128,7 +128,7 @@ def delay_execution(seconds: int) -> None:
 def main() -> None:
     spi1 = SPI(1, sck=Spi1Pin.SCL, mosi=Spi1Pin.SDA, miso=Spi1Pin.SDD)
     sensor = Sensor(spi=spi1, cs=Spi1Pin.CSB)
-    sensor_logger = SensorLogger(sensor=sensor)
+    sensor_logger = SensorLogger(sensor=sensor, buffer_size=3600)
     sensor_loop = SensorLoop(logger=sensor_logger)
     sensor_loop.start()
 

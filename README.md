@@ -4,7 +4,6 @@
 Each project has it's own folder that is added to a workspace:
 - Blink
 - BMP280-SPI
-- KY-023
 
 ## Development environment
 1. Open `mcu-pico.code-workspace` in VSCode
@@ -36,4 +35,3 @@ MicroPico status bar should indicate `Pico connected`
     - Do "Interactive Soft Reset" via vREPL `.sr`
     - Disconnect Pico via status bar, unplug it from USB and plug back in to host USB - Pico will remain disconnected from vREPL and will execute the program
     - Plug the Pico to battery
-

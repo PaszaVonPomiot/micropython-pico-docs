@@ -13,7 +13,7 @@
             "path": "BMP280-SPI"
         },
         {
-            "name": "Mpy Remote Workspace",
+            "name": "Pico",
             "uri": "pico:/"
         }
     ],
@@ -41,9 +41,7 @@
 		"workbench.colorTheme": "Default Dark+",
 		"terminal.integrated.defaultProfile.windows": "Windows PowerShell",
 		"python.languageServer": "Pylance",
-        "python.analysis.extraPaths": [
-            "lib"
-        ],
+
 		"python.terminal.activateEnvironment": true,
 		"[python]": {
 			"editor.formatOnSave": true,
@@ -67,6 +65,16 @@
 		"ruff.configurationPreference": "filesystemFirst",
 		"explorer.compactFolders": true,
 		"explorer.excludeGitIgnore": false,
+        "python.analysis.typeCheckingMode": "basic",  // for micropico
+        "python.analysis.diagnosticSeverityOverrides": {
+            "reportMissingModuleSource": "none"
+        },  // for micropico
+        "python.analysis.typeshedPaths": [
+            "~/.micropico-stubs/included"
+        ],  // for micropico
+        "python.analysis.extraPaths": [
+            "~/.micropico-stubs/included",
+        ],  // for micropico
         "micropico.openOnStart": false,  // not working
 		"micropico.softResetAfterUpload": false,  // will hang VS Code after project upload
         "micropico.autoConnect": true,
@@ -74,7 +82,6 @@
         "micropico.additionalSyncFolders": [
             "Blink",
             "BMP280-SPI",
-            "KY-023"
         ],
 		}
 }
