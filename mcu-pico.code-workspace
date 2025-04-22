@@ -5,10 +5,6 @@
             "path": "."
         },
         {
-            "name": "KY-023",
-            "path": "KY-023"
-        },
-        {
             "name": "Blink",
             "path": "Blink"
         },
@@ -45,6 +41,9 @@
 		"workbench.colorTheme": "Default Dark+",
 		"terminal.integrated.defaultProfile.windows": "Windows PowerShell",
 		"python.languageServer": "Pylance",
+        "python.analysis.extraPaths": [
+            "lib"
+        ],
 		"python.terminal.activateEnvironment": true,
 		"[python]": {
 			"editor.formatOnSave": true,
@@ -68,8 +67,9 @@
 		"ruff.configurationPreference": "filesystemFirst",
 		"explorer.compactFolders": true,
 		"explorer.excludeGitIgnore": false,
-		"micropico.softResetAfterUpload": false,
-        "micropico.autoConnect": false,
+        "micropico.openOnStart": false,  // not working
+		"micropico.softResetAfterUpload": false,  // will hang VS Code after project upload
+        "micropico.autoConnect": true,
         "micropico.syncFolder": ".",
         "micropico.additionalSyncFolders": [
             "Blink",

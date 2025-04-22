@@ -3,7 +3,7 @@
 ## Hardware
 - [Raspberry Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
 - [HW-611 E/P 280 sensor](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf)  
-<img src="img/bmp280-pinout.webp" alt="BMP280 Pinout" width="300">
+<img src="docs/img/bmp280-pinout.webp" alt="BMP280 Pinout" width="300">
 
 ## Software
 - [MicroPython](https://micropython.org/download/RPI_PICO/) - firmware

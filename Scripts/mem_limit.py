@@ -1,3 +1,7 @@
+"""
+Test how many elements can fit into memory.
+"""
+
 import gc
 
 memory_element = "1609459201;23.77;980.30"
