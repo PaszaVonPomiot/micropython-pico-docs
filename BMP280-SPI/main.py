@@ -1,14 +1,9 @@
-try:
-    from typing import TextIO
-except ImportError:
-    pass  # For MicroPython compatibility
-
 import os
 import time
 
-from machine import SPI, Pin
-
+import urandom
 from bmp280 import BMP280SPI, BMP280Configuration
+from machine import SPI, Pin
 
 
 class Spi1Pin:  # HW-611 pinout
@@ -16,10 +11,6 @@ class Spi1Pin:  # HW-611 pinout
     SDA = Pin(11)  # SPI Data
     SDD = Pin(12)  # Additional Data Line
     CSB = Pin(13, mode=Pin.OUT, value=1)  # Chip Select Bar
-
-
-# SPI configuration
-spi1 = SPI(1, sck=Spi1Pin.SCL, mosi=Spi1Pin.SDA, miso=Spi1Pin.SDD)
 
 
 class Sensor:
@@ -42,20 +33,26 @@ class Sensor:
 
     def get_record(self) -> str:
         readout = self.bmp280_spi.measurements
-        return f"{time.time()};{readout['t']:.2f};{readout['p']:.2f}"
+        return f"{time.ticks_ms() // 1000};{readout['t']:.2f};{readout['p']:.2f}"
 
 
 class SensorLogger:
-    def __init__(self, sensor: Sensor) -> None:
-        self.file_name = f"{time.time()}.csv"
+    def __init__(self, sensor: Sensor, min_buffer_items: int = 60) -> None:
+        self.file_name = self._get_random_file_name()
         self.folder_name = "data"
         self.file_path = f"{self.folder_name}/{self.file_name}"
         self.buffer: list[str] = []
+        self.min_buffer_items = min_buffer_items
         self.sensor = sensor
         self._data_folder_setup()
         self._file_setup()
 
-    def _data_folder_setup(self):
+    def _get_random_file_name(self) -> str:
+        chars = "abcdefghijklmnopqrstuvwxyz"
+        name = "".join(chars[urandom.randint(0, 25)] for _ in range(8))
+        return f"{name}.csv"
+
+    def _data_folder_setup(self) -> None:
         try:
             os.mkdir(self.folder_name)
         except OSError:
@@ -109,14 +106,27 @@ class SensorLoop:
         self._running = True
         while self._running:
             self.logger.save_record_to_buffer()
-            self.logger.save_buffer_to_file(min_items=3600)
+            self.logger.save_buffer_to_file(min_items=10)
             time.sleep(self.interval_sec)
 
     def stop(self) -> None:
         self._running = False
 
 
+class Timestamp:  # TODO: Add uptime and epoch timestamp variants
+    ...
+
+
+def delay_execution(seconds: int) -> None:
+    """
+    Delay main() execution to give more time for VS Code MicroPico
+    vREPL terminal to auto-connect with Pico and halt program
+    """
+    time.sleep(seconds)
+
+
 def main() -> None:
+    spi1 = SPI(1, sck=Spi1Pin.SCL, mosi=Spi1Pin.SDA, miso=Spi1Pin.SDD)
     sensor = Sensor(spi=spi1, cs=Spi1Pin.CSB)
     sensor_logger = SensorLogger(sensor=sensor)
     sensor_loop = SensorLoop(logger=sensor_logger)
@@ -124,4 +134,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    delay_execution(seconds=2)
     main()
