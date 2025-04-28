@@ -5,15 +5,7 @@ from random import randint
 
 from bmp280 import BMP280SPI, BMP280Configuration
 from machine import SPI, Pin
-
-
-class BMP280Pinout:  # HW-611 SPI pinout
-    SCL = Pin(10)  # SPI Clock
-    SDA = Pin(11)  # SPI Data
-    SDD = Pin(12)  # Additional Data Line
-    CSB = Pin(
-        13, mode=Pin.OUT, value=1
-    )  # Chip Select Bar  # TODO: hide implementation details
+from rtc_core import Clock
 
 
 class BMP280Sensor:
@@ -36,7 +28,7 @@ class BMP280Sensor:
 
     def get_record(self) -> str:
         readout = self.bmp280_spi.measurements
-        return f"{time.ticks_ms() // 1000};{readout['t']:.2f};{readout['p']:.2f}"
+        return f"{Clock.get_timestamp()};{readout['t']:.2f};{readout['p']:.2f}"
 
 
 class BMP280Logger:
