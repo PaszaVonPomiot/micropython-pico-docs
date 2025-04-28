@@ -1,22 +1,22 @@
 {
 	"folders": [
-        {
-            "name": "mcu-pico",
-            "path": "."
-        },
-        {
-            "name": "Blink",
-            "path": "Blink"
-        },
-        {
-            "name": "BMP280-SPI",
-            "path": "BMP280-SPI"
-        },
-        {
-            "name": "Pico",
-            "uri": "pico:/"
-        }
-    ],
+		{
+			"name": "mcu-pico",
+			"path": "."
+		},
+		{
+			"name": "BMP280-SPI",
+			"path": "BMP280-SPI"
+		},
+		{
+			"name": "DS1302-RTC",
+			"path": "DS1302-RTC"
+		},
+		{
+			"name": "Pico",
+			"uri": "pico:/"
+		}
+	],
 	"settings": {
 		"files.exclude": {
 			".mypy_cache": true,
@@ -82,6 +82,9 @@
         "micropico.additionalSyncFolders": [
             "Blink",
             "BMP280-SPI",
+            "BMP280-I2C",
+            "DS1302-RTC",
+            "Rover"
         ],
 		}
 }

@@ -8,3 +8,8 @@ dependencies = []
 
 [tool.ruff]
 ignore = ["F401"] # Ignore unused imports
+
+[tool.uv.workspace]
+members = [
+    "Rover",
+]

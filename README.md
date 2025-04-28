@@ -4,6 +4,8 @@
 Each project has it's own folder that is added to a workspace:
 - Blink
 - BMP280-SPI
+- BMP280-I2C
+- DS1302-RTC
 
 ## Development environment
 1. Open `mcu-pico.code-workspace` in VSCode
