@@ -84,7 +84,6 @@
             "BMP280-SPI",
             "BMP280-I2C",
             "DS1302-RTC",
-            "Rover"
         ],
 		}
 }
