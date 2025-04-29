@@ -7,10 +7,8 @@ from utils import mcu_setup
 
 
 def main():
-    # bmp280sensor.loop.start() # should be that simple
     sensor_loop.start()
 
 
 if __name__ == "__main__":
-    mcu_setup()
     main()

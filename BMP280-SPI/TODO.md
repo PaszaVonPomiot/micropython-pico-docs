@@ -2,4 +2,6 @@
 - Add uptime and rtc timestamp variants
 - Change to create file only when during save it doesn't exist
 - Add gzip
+- boot.py to set internal rtc from external rtc
+
 
