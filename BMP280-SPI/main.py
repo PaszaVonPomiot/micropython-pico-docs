@@ -2,11 +2,14 @@
 Set correct SensorLogger.buffer to avoid MemoryError (buffer~183 seems to be max from host, but from Pico buffer~???)
 """
 
-from setup import sensor_loop
+from core.bmp280 import BMP280Sensor
 
 
 def main():
-    sensor_loop.start()
+    sensor = BMP280Sensor()
+    print(sensor.get_record())
+    print(sensor.get_record())
+    print(sensor.get_record())
 
 
 if __name__ == "__main__":

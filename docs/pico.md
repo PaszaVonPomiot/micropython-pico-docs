@@ -43,6 +43,11 @@ https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf
         - OK for powering LED or buzzer
         - if need to control high current device from GPIO use driver board that has separate power supply input
         - inputs by default in a high-impedance (Hi-Z) state when not configured
+- SPI
+    - 2 SPI controllers available: SPI0 and SPI1
+    - set of SPI pins has: SCK, RX, TX, CSn (SCL, MISO, MOSI, CS)
+    - SPI0 has 3 sets of pins, SPI1 has 2 sets of pins
+    - device needs to use SCL, MISO and MOSI from the same controller; CS can be any GPIO pin
 - on-board LED
 
 
