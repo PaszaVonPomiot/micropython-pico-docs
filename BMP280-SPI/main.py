@@ -3,7 +3,6 @@ Set correct SensorLogger.buffer to avoid MemoryError (buffer~183 seems to be max
 """
 
 from setup import sensor_loop
-from utils import mcu_setup
 
 
 def main():

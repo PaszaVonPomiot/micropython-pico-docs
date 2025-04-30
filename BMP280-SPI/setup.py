@@ -1,5 +1,5 @@
-from bmp280_core import BMP280Logger, BMP280Loop, BMP280Sensor
 from config.board import BMP280Pin
+from core.bmp280 import BMP280Logger, BMP280Loop, BMP280Sensor
 from machine import SPI, Pin
 
 

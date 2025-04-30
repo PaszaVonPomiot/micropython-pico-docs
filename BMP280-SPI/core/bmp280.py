@@ -4,8 +4,8 @@ import time
 from random import randint
 
 from bmp280 import BMP280SPI, BMP280Configuration
+from core.rtc import Clock
 from machine import SPI, Pin
-from rtc_core import Clock
 
 
 class BMP280Sensor:
