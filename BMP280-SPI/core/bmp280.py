@@ -5,6 +5,7 @@ from random import randint
 
 from bmp280 import BMP280SPI, BMP280Configuration
 from config.board import BMP280Pin
+from config.sensors import get_bmp280_config
 from core.base import BaseSpiGpio
 from core.rtc import Clock
 from core.spi import spi_factory
@@ -19,29 +20,21 @@ class BMP280GPIO(BaseSpiGpio):
 
 
 class BMP280Sensor:
-    def __init__(
-        self,
-        config: BMP280Configuration | None = None,
-    ) -> None:
-        self.bmp280_config = self._get_config(config=config)
+    def __init__(self) -> None:
+        self.bmp280_config = get_bmp280_config()
         self.bmp280_spi = BMP280SPI(
             spi=spi_factory(spi_id=1, pinout=BMP280GPIO),
             cs=BMP280GPIO.CS,
             configuration=self.bmp280_config,
         )
 
-    def _get_config(self, config: BMP280Configuration | None) -> BMP280Configuration:
-        if config is None:
-            return self._default_config()
-        else:
-            return config
-
-    def _default_config(self) -> BMP280Configuration:
-        config = BMP280Configuration()
-        config.pressure_oversampling = BMP280Configuration.PRESSURE_OVERSAMPLING_4X
-        return config
+    def get_readout(self) -> tuple[float, float]:
+        """Get temperature and pressure readout from BMP280 sensor"""
+        readout = self.bmp280_spi.measurements
+        return (readout["t"], readout["p"])
 
     def get_record(self) -> str:
+        """Get a formatted CSV record with the current timestamp, temperature and pressure"""
         readout = self.bmp280_spi.measurements
         return f"{Clock.get_timestamp()};{readout['t']:.2f};{readout['p']:.2f}"
 

@@ -49,6 +49,8 @@ https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf
     - SPI0 has 3 sets of pins, SPI1 has 2 sets of pins
     - device needs to use SCL, MISO and MOSI from the same controller; CS can be any GPIO pin
 - on-board LED
+- PIO
+    - 2 PIO coprocessors, each with 4 state machines
 
 
 ## Hardware design
