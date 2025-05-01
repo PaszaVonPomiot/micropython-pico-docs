@@ -7,9 +7,9 @@ from core.bmp280 import BMP280Sensor
 
 def main():
     sensor = BMP280Sensor()
-    print(sensor.get_record())
-    print(sensor.get_record())
-    print(sensor.get_record())
+    print(sensor.get_csv_record())
+    print(sensor.get_readout())
+    print(sensor.get_csv_record())
 
 
 if __name__ == "__main__":

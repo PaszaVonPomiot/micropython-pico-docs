@@ -3,11 +3,11 @@ import sys
 import time
 from random import randint
 
-from bmp280 import BMP280SPI, BMP280Configuration
+from bmp280 import BMP280SPI
 from config.board import BMP280Pin
 from config.sensors import get_bmp280_config
 from core.base import BaseSpiGpio
-from core.rtc import Clock
+from core.rtc import clock
 from core.spi import spi_factory
 from machine import Pin
 
@@ -33,10 +33,10 @@ class BMP280Sensor:
         readout = self.bmp280_spi.measurements
         return (readout["t"], readout["p"])
 
-    def get_record(self) -> str:
+    def get_csv_record(self) -> str:
         """Get a formatted CSV record with the current timestamp, temperature and pressure"""
         readout = self.bmp280_spi.measurements
-        return f"{Clock.get_timestamp()};{readout['t']:.2f};{readout['p']:.2f}"
+        return f"{clock.now()};{readout['t']:.2f};{readout['p']:.2f}"
 
 
 class BMP280Logger:

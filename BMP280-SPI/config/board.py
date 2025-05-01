@@ -2,7 +2,10 @@ from micropython import const
 
 
 class Pico:
+    """Pico board specific settings"""
+
     MCU_FREQUENCY = const(48_000_000)  # 48 MHz
+    RTC_DATETIME = (2025, 5, 2, 4, 12, 0, 0, 0)
 
 
 class BMP280Pin:
