@@ -10,7 +10,7 @@ class LoggerCSV:
         self.folder_name = "data"
         self.file_path = f"{self.folder_name}/{self.file_name}"
         self.csv_headers = csv_headers
-        self.buffer_size = buffer_size  # max. 180
+        self.buffer_size = buffer_size
         self.buffer: list[str] = []
         self._post_init()
 
@@ -43,7 +43,6 @@ class LoggerCSV:
 
     def _add_record_to_buffer(self, record: str) -> None:
         """Use buffer to reduce flash wear"""
-        # record = self.sensor.get_record()
         print(record)
         self.buffer.append(record)
 

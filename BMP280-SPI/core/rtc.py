@@ -3,7 +3,7 @@ from machine import RTC
 
 class Clock:
     def __init__(self) -> None:
-        self._rtc = RTC()
+        self._rtc = RTC()  # already synchronized in boot.py
 
     def now(self) -> str:
         """Return the current date and time in the format 'YYYY-MM-DD HH:MM:SS'."""
