@@ -1,6 +1,3 @@
-import time
-
-from config.board import Pico
 from machine import RTC
 
 

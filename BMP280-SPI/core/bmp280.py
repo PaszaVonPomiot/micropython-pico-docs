@@ -1,7 +1,3 @@
-import sys
-import time
-from random import randint
-
 from bmp280 import BMP280SPI
 from config.board import BMP280Pin
 from config.sensors import get_bmp280_config
@@ -12,6 +8,8 @@ from machine import Pin
 
 
 class BMP280GPIO(BaseSpiGpio):
+    """SPI to GPIO mapping and configuration."""
+
     SCK = Pin(BMP280Pin.SCL)
     MOSI = Pin(BMP280Pin.SDA)
     MISO = Pin(BMP280Pin.SDD)

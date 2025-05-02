@@ -9,12 +9,12 @@ def main():
     logger = LoggerCSV(
         file_name="bmp280.csv",
         csv_headers=["timestamp", "temperature", "pressure"],
-        buffer_size=180,
+        buffer_size=60,
     )
 
     while True:
         logger.process_record(record=sensor.get_csv_record())
-        time.sleep(10.0)
+        time.sleep(1.0)
 
 
 if __name__ == "__main__":

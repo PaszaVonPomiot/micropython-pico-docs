@@ -1,1 +1,0 @@
-- add gzip compression with "gzip.open(file_path, mode="a")"
