@@ -4,7 +4,7 @@ Wrapper around BMP280 (HW-611 E/P 280) sensor library for Raspberry Pico using 4
 ## Hardware
 
 -   [Raspberry Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
--   [HW-611 E/P 280 sensor](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf)  
+-   [BMP280 sensor](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf)  
     <img src="docs/img/bmp280-pinout.webp" alt="BMP280 Pinout" width="300">
 
 ## Software
@@ -72,6 +72,8 @@ Default: 1000 ms
 -   I2C
 
 ## Examples
+
+For working example see [main.py](main.py) file.
 
 ```py
 # Chip configuration for BMP280Sensor class
