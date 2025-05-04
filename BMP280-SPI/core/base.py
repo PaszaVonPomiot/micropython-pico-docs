@@ -2,7 +2,7 @@ from machine import Pin
 
 
 class BaseSpiGpio:
-    """Interface for SPI GPIO pins."""
+    """Interface for 4-wire SPI GPIO pins."""
 
     SCK: Pin  # SCK
     MOSI: Pin  # MOSI

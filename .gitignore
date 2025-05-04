@@ -1,7 +1,5 @@
 # Custom
-tutorial_env/
 .idea
-poetry.lock
 temp/
 
 # Byte-compiled / optimized / DLL files

@@ -1,5 +1,5 @@
 # BMP280 - Pressure and temperature sensor
-Wrapper around BMP280 (HW-611 E/P 280) sensor library for Raspberry Pico using 4-wire SPI interface with RTC and optional logger.
+Wrapper around BMP280 sensor library for Raspberry Pico using 4-wire SPI interface with RTC and optional logger.
 
 ## Hardware
 

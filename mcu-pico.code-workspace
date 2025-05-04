@@ -3,18 +3,6 @@
 		{
 			"name": "mcu-pico",
 			"path": "."
-		},
-		{
-			"name": "BMP280-SPI",
-			"path": "BMP280-SPI"
-		},
-		{
-			"name": "DS1302-RTC",
-			"path": "DS1302-RTC"
-		},
-		{
-			"name": "Pico",
-			"uri": "pico:/"
 		}
 	],
 	"settings": {

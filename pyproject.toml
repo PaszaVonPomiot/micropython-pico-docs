@@ -7,9 +7,4 @@ requires-python = ">=3.13"
 dependencies = []
 
 [tool.ruff]
-ignore = ["F401"] # Ignore unused imports
-
-[tool.uv.workspace]
-members = [
-    "Rover",
-]
+lint.ignore = ["F401"] # Ignore unused imports
