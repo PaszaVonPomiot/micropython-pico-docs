@@ -52,7 +52,7 @@ https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf
     -   device needs to use SCL, MISO and MOSI from the same controller; CS can be any GPIO pin
 -   on-board LED
 -   ADC - 12-bit resolution
-    -   transforms an analog signal into a value between 0 and 4095
+    -   transforms an analog signal into a value between 0 and 4095 but it's scaled to 0-65535
     -   4 ADC channels on external GPIOs
     -   GPIOs 26, 27, and 28 can be used to read output voltage from peripherals
     -   GPIO29 can measure the input voltage that powers the board (VSYS);
