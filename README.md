@@ -1,17 +1,11 @@
 # Raspberry Pi Pico projects in MicroPython
 
-## Projects
-Each project has it's own folder that is added to a workspace:
-- Blink
-- BMP280-SPI
-- BMP280-I2C
-- DS1302-RTC
-
 ## Development environment
+
 1. Open `mcu-pico.code-workspace` in VSCode
 1. Setup common virtual environment and interpreter
-    - Create virtual environment in `mcu-pico` folder using `uv sync`
-    - Open any *.py file, click "select interpreter" and pick "Select at workspace level"
+    - Create virtual environment using `uv sync`
+    - Open any \*.py file, click "select interpreter" and pick "Select at workspace level"
     - Select common interpreter from `.venv`
 1. Install MicroPico extension
 1. New projects (workspaces)
@@ -22,13 +16,16 @@ Each project has it's own folder that is added to a workspace:
     - Add project to this README.md
 
 ## Running program
+
 MicroPico status bar should indicate `Pico connected`
 
 ### From host
-- Run single file via `Run current file on Pico` 
-- Click `Run` from status bar
+
+-   Run single file via `Run current file on Pico`
+-   Click `Run` from status bar
 
 ### From Pico
+
 1. Upload program to Pico
     - Upload single via `Upload file to Pico`
     - Upload project (all its whitelisted files from project folder) via `Upload project to Pico`

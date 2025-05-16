@@ -1,0 +1,4 @@
+-   `machine.I2C` - hardware implementation of I2C
+    -   SCL, SDA wires, both need pull-up resistors
+    -
+-   `machine.SoftI2C` - software implementation of I2C on any GPIO pins
